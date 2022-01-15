@@ -142,6 +142,7 @@ var taskButtonHandler = function(event) {
 };
 
 var taskStatusChangeHandler = function(event) {
+<<<<<<< HEAD
   var taskId = event.target.getAttribute("data-task-id");
   var statusValue = event.target.value.toLowerCase();
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
@@ -154,6 +155,9 @@ var taskStatusChangeHandler = function(event) {
   else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);
   }
+=======
+
+>>>>>>> feature/updating-tasks
 };
 
 var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
