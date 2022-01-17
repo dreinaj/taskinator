@@ -220,6 +220,34 @@ var saveTasks = function() {
 }
 };
 
+var tasksToDoEl = document.getElementById("#tasks-to-do");
+var tasksInProgressEl = document.getElementById("#tasks-in-progress");
+var tasksCompletedEl = document.getElementById("#tasks-completed");
+
+var loadtasks = function() {
+  var listItemEl = document.getElementById("li");
+  listItemEl.className = "task-item";
+  listItemEl.setAttribute("data-task-id", taskIdCounter);
+
+  var taskInfoEl = document.createElement("div");
+  taskInfoEl.className = "task-info";
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+  listItemEl.appendChild(taskInfoEl);
+
+  var taskActionsEl = createTaskActions(taskIdCounter);
+  listItemEl.appendChild(taskActionsEl);
+  tasksToDoEl.appendChild(listItemEl);
+
+taskDataObj.id = taskIdCounter;
+
+tasks.push(taskDataObj);
+
+var saveTasks = function() {
+  localStorage.setItem("tasks", tasks);
+}
+  taskIdCounter++;
+};
+
 var saveTasks = function() {
   localStorage.setItem("tasks", tasks);
 }
